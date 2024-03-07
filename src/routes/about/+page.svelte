@@ -1,4 +1,4 @@
-<div class="card p-4 text-xl p-8 mx-8">
+<div class="card text-xl p-8 mx-8">
     <p>
         TitleGrok is a utility for retrieving and formatting lists of books and articles from raw text, websites, and files. 
         See <a href="/usage" class="anchor">Usage</a> for a quickstart guide and 
