@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.postcss'
-	import { TabGroup, TabAnchor } from '@skeletonlabs/skeleton'
-	import { LightSwitch } from '@skeletonlabs/skeleton'
+	import { TabGroup, Tab, TabAnchor } from '@skeletonlabs/skeleton'
 	import { page } from '$app/stores';
 </script>
 
@@ -14,5 +13,9 @@
 </TabGroup>
 
 <slot />
-
+<div class="card text-xl p-4 mx-8">
+	<code class="code">v0.1</code>
+	| <a href="https://github.com/owenleonard11/titlegrok/" class="anchor">GitHub</a>
+	| <a href="https://titlegrok.readthedocs.io/" class="anchor">ReadTheDocs</a>
+</div>
 
