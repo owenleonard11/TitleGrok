@@ -11,5 +11,6 @@ vite.config.ts.timestamp-*
 .vscode
 .npmrc
 .eslintrc.cjs
+.eslintignore
 .prettierignore
 .prettierrc
