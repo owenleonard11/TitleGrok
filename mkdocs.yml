@@ -3,3 +3,5 @@ site_author: Owen Leonard
 
 repo_url: https://github.com/owenleonard11/TitleGrok/
 edit_uri: blob/master/docs
+
+theme: readthedocs
