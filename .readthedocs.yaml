@@ -1,7 +1,11 @@
-version: 1
+# Read the Docs configuration file for MkDocs projects
+version: 2
 
 build:
-  os: "ubuntu-20.04"
+  os: ubuntu-2.04
   tools:
-    npm: "10.2.4"
-    nodejs: "v20.11.1"
+    python: "3.12"
+
+
+mkdocs:
+  configuration: mkdocs.yml
