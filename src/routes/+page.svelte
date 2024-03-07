@@ -5,16 +5,17 @@
     import link_icon from "$lib/icons/link.png"
     import paste_icon from "$lib/icons/paste.png"
     import upload_icon from "$lib/icons/upload.png"
+    import none_icon from "$lib/icons/none.png"
 </script>
 
-<Accordion class="px-8 pb-4 text-xl">
+<Accordion autocollapse class="px-8 pb-4 text-xl">
     <AccordionItem open>
         <svelte:fragment slot="summary"><h2 class="h2">Step 1: Import</h2></svelte:fragment>
         <svelte:fragment slot="content">
             <Accordion autocollapse>
                 <AccordionItem>
-                    <svelte:fragment slot="iconClosed"></svelte:fragment>
-	                <svelte:fragment slot="iconOpen"></svelte:fragment>
+                    <svelte:fragment slot="iconOpen"><img src={none_icon} alt="blank icon"></svelte:fragment>
+	                <svelte:fragment slot="iconClosed"><img src={none_icon} alt="blank icon"></svelte:fragment>
                     <svelte:fragment slot="lead"><img src={link_icon} alt="link icon"/></svelte:fragment>
                     <svelte:fragment slot="summary"><span class="text-2xl ml-2"><strong>From the web</strong></span></svelte:fragment>
                     <svelte:fragment slot="content">
@@ -25,6 +26,8 @@
                     </svelte:fragment>
                 </AccordionItem>
                 <AccordionItem>
+                    <svelte:fragment slot="iconOpen"><img src={none_icon} alt="blank icon"></svelte:fragment>
+	                <svelte:fragment slot="iconClosed"><img src={none_icon} alt="blank icon"></svelte:fragment>
                     <svelte:fragment slot="lead"><img src={upload_icon} alt="upload icon" class="object-scale-down"/></svelte:fragment>
                     <svelte:fragment slot="summary"><span class="text-2xl ml-2"><strong>From a local file</strong></span></svelte:fragment>
                     <svelte:fragment slot="content">
@@ -35,6 +38,8 @@
                     </svelte:fragment>
                 </AccordionItem>
                 <AccordionItem>
+                    <svelte:fragment slot="iconOpen"><img src={none_icon} alt="blank icon"></svelte:fragment>
+	                <svelte:fragment slot="iconClosed"><img src={none_icon} alt="blank icon"></svelte:fragment>
                     <svelte:fragment slot="lead"><img src={paste_icon} alt="paste icon" class="object-scale-down"/></svelte:fragment>
                     <svelte:fragment slot="summary"><span class="text-2xl ml-2"><strong>From pasted text</strong></span></svelte:fragment>
                     <svelte:fragment slot="content">
