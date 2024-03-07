@@ -1,6 +1,6 @@
 <div class="card text-xl p-8 mx-8">
     <p>
-        TitleGrok is a utility for retrieving and formatting lists of books and articles from raw text, websites, and files. 
+        TitleGrok is a utility for retrieving and formatting lists of books and articles from websites, files, and raw text. 
         See <a href="/usage" class="anchor">Usage</a> for a quickstart guide and 
         <a href="https://titlegrok.readthedocs.io/en/latest/" class="anchor">ReadTheDocs</a> for more complete 
         documentation. TitleGrok is fully open-source and licensed under the 
