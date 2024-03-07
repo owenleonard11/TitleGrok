@@ -16,7 +16,8 @@
         <a href="https://skeleton.dev" class="anchor">Skeleton</a> UI Toolkit. The backend uses Python 3.9 with 
         <a href="https://fastapi.tiangolo.com/" class="anchor">FastAPI</a> to handle requests. TitleGrok is hosted,
         regrettably, on Amazon Web Services. If you enjoy using the site, please consider supporting 
-        <a href="https://www.amazonlaborunion.org/" class="anchor">unionization efforts at Amazon</a>.
+        <a href="https://www.amazonlaborunion.org/" class="anchor">unionization efforts at Amazon</a>. Icons are 
+        provided by <a href="https://icons8.com" class="anchor">Icons8</a>.
     </p>
     <p>
         TitleGrok is built and maintained by me, <a href="https://github.com/owenleonard11" class="anchor">Owen Leonard</a>.

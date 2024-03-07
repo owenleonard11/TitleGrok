@@ -17,5 +17,6 @@
 	<code class="code">v0.1</code>
 	| <a href="https://github.com/owenleonard11/titlegrok/" class="anchor">GitHub</a>
 	| <a href="https://titlegrok.readthedocs.io/" class="anchor">ReadTheDocs</a>
+	| Icons by <a href="https://icons8.com" class="anchor">Icons8</a>
 </div>
 
