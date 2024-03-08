@@ -2,10 +2,11 @@
 
 	import { Accordion, FileDropzone } from "@skeletonlabs/skeleton";
 	import ImportAccordianItem from "./ImportAccordianItem.svelte";
+    import { fade } from 'svelte/transition';
 
-    import link_icon from "$lib/icons/link.png";
+    import link_icon   from "$lib/icons/link.png";
     import upload_icon from "$lib/icons/upload.png"
-    import paste_icon from "$lib/icons/paste.png"
+    import paste_icon  from "$lib/icons/paste.png"
 
     const ACCEPTED_EXTS = ['PDF', 'DOCX', 'TXT']
 
@@ -27,9 +28,11 @@
         fileExt = fileName.split('.').at(-1)?.toUpperCase();
         if (!fileExt) { 
             showFileWarning = true;
+            showFileCard = false;
             fileWarningMessage = "Unrecognized filetype. Please upload a different file.";
         } else if (!ACCEPTED_EXTS.includes(fileExt)) {
             showFileWarning = true;
+            showFileCard = false;
             fileWarningMessage = `Unsupported extension: ${fileExt}. Please upload a different file.`;
         } else {
             showFileWarning = false;
@@ -52,17 +55,17 @@
             <svelte:fragment slot="meta">.txt, .pdf, and .docx currently supported</svelte:fragment>
         </FileDropzone>
         {#if showFileWarning}
-            <aside class="alert variant-ghost-warning">
+            <aside class="alert variant-ghost-warning" in:fade>
                 <span class="badge-icon variant-filled-warning text-xl">!</span>
                 <div class="alert-message">{fileWarningMessage}</div>
             </aside>
         {/if}
         {#if showFileCard}
-            <aside class="alert variant-ghost-success">
+            <aside class="alert variant-ghost-success" in:fade>
                 <span class="badge">{fileExt}</span>
                 <div class="alert-message">{fileName}</div>
                 <div class="alert-actions">
-                    <button class="btn-icon variant-ghost">X</button>
+                    <button class="btn-icon variant-ghost text-3xl" on:click={() => showFileCard=false}>×</button>
                 </div>
             </aside>
         {/if}
