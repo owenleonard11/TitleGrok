@@ -7,13 +7,30 @@
     import upload_icon from "$lib/icons/upload.png"
     import paste_icon from "$lib/icons/paste.png"
 
-    const web_item = { 
-        icon_src: link_icon, icon_alt: "link icon", item_summary: "From the web" }
-    const upload_item = {
-        icon_src: upload_icon, icon_alt: "upload icon", item_summary: "From a local file" }
-    const paste_item = {
-        icon_src: paste_icon, icon_alt: "paste icon", item_summary: "From pasted Text" }
+    const ACCEPTED_EXTS = ['pdf', 'docx', 'txt']
 
+    const web_item = { iconSrc: link_icon, iconAlt: "link icon", itemSummary: "From the web" }
+    const upload_item = { iconSrc: upload_icon, iconAlt: "upload icon", itemSummary: "From a local file" }
+    const paste_item = { iconSrc: paste_icon, iconAlt: "paste icon", itemSummary: "From pasted text" }
+
+    let files: FileList;
+    let showFileWarning: boolean = false;
+    let showFileCard: boolean = true;
+    let fileWarningMessage: string;
+    let fileName: string;
+    const handleFileUpload = () => {
+        console.log(files[0].name)
+        const fileExt: string | undefined = files[0].name.split('.').at(-1);
+        if (!fileExt) { 
+            showFileWarning = true;
+            fileWarningMessage = "Unrecognized filetype. Please upload a different file.";
+        } else if (!ACCEPTED_EXTS.includes(fileExt.toLowerCase())) {
+            showFileWarning = true;
+            fileWarningMessage = `Unsupported extension: ${fileExt}. Please upload a different file.`
+        } else {
+            showFileWarning = false;
+        }
+    }
 </script>
 
 <Accordion autocollapse>
@@ -24,10 +41,16 @@
         </div>
     </ImportAccordianItem>
     <ImportAccordianItem {...upload_item}>
-        <FileDropzone name="files">
+        <FileDropzone name="files" bind:files on:change={handleFileUpload}>
             <svelte:fragment slot="message"><strong>Upload a file</strong> or drag and drop</svelte:fragment>
             <svelte:fragment slot="meta">.txt, .pdf, and .docx currently supported</svelte:fragment>
         </FileDropzone>
+        {#if showFileWarning}
+            <aside class="alert variant-ghost-warning">
+                <span class="badge-icon variant-filled-warning text-xl">!</span>
+                <div class="alert-message">{fileWarningMessage}</div>
+            </aside>
+        {/if}
     </ImportAccordianItem>
     <ImportAccordianItem {...paste_item}>
         <textarea class="textarea text-xl" placeholder="Paste full text here"></textarea>

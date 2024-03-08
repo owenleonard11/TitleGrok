@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.postcss'
-	import { TabGroup, Tab, TabAnchor } from '@skeletonlabs/skeleton'
+	import { TabGroup, Tab, TabAnchor, LightSwitch } from '@skeletonlabs/skeleton'
 	import { page } from '$app/stores';
 </script>
 
