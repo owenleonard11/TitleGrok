@@ -61,6 +61,9 @@
             <aside class="alert variant-ghost-success">
                 <span class="badge">{fileExt}</span>
                 <div class="alert-message">{fileName}</div>
+                <div class="alert-actions">
+                    <button class="btn-icon variant-ghost">X</button>
+                </div>
             </aside>
         {/if}
     </ImportAccordianItem>
