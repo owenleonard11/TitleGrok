@@ -7,30 +7,36 @@
     import upload_icon from "$lib/icons/upload.png"
     import paste_icon from "$lib/icons/paste.png"
 
-    const ACCEPTED_EXTS = ['pdf', 'docx', 'txt']
+    const ACCEPTED_EXTS = ['PDF', 'DOCX', 'TXT']
 
-    const web_item = { iconSrc: link_icon, iconAlt: "link icon", itemSummary: "From the web" }
+    const web_item    = { iconSrc: link_icon,   iconAlt: "link icon",   itemSummary: "From the web" }
     const upload_item = { iconSrc: upload_icon, iconAlt: "upload icon", itemSummary: "From a local file" }
-    const paste_item = { iconSrc: paste_icon, iconAlt: "paste icon", itemSummary: "From pasted text" }
+    const paste_item  = { iconSrc: paste_icon,  iconAlt: "paste icon",  itemSummary: "From pasted text" }
 
     let files: FileList;
-    let showFileWarning: boolean = false;
-    let showFileCard: boolean = true;
+
+    let showFileWarning   : boolean = false;
     let fileWarningMessage: string;
-    let fileName: string;
+    let showFileCard      : boolean = false;
+    let fileExt           : string | undefined;
+    let fileName          : string;
+    
     const handleFileUpload = () => {
         console.log(files[0].name)
-        const fileExt: string | undefined = files[0].name.split('.').at(-1);
+        fileName = files[0].name;
+        fileExt = fileName.split('.').at(-1)?.toUpperCase();
         if (!fileExt) { 
             showFileWarning = true;
             fileWarningMessage = "Unrecognized filetype. Please upload a different file.";
-        } else if (!ACCEPTED_EXTS.includes(fileExt.toLowerCase())) {
+        } else if (!ACCEPTED_EXTS.includes(fileExt)) {
             showFileWarning = true;
-            fileWarningMessage = `Unsupported extension: ${fileExt}. Please upload a different file.`
+            fileWarningMessage = `Unsupported extension: ${fileExt}. Please upload a different file.`;
         } else {
             showFileWarning = false;
+            showFileCard = true;
         }
     }
+
 </script>
 
 <Accordion autocollapse>
@@ -49,6 +55,12 @@
             <aside class="alert variant-ghost-warning">
                 <span class="badge-icon variant-filled-warning text-xl">!</span>
                 <div class="alert-message">{fileWarningMessage}</div>
+            </aside>
+        {/if}
+        {#if showFileCard}
+            <aside class="alert variant-ghost-success">
+                <span class="badge">{fileExt}</span>
+                <div class="alert-message">{fileName}</div>
             </aside>
         {/if}
     </ImportAccordianItem>
